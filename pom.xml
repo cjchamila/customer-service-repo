@@ -63,6 +63,7 @@
 
 	<build>
 	<finalName>customer-service</finalName>
+<<<<<<< HEAD
 		<!-- <plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -79,6 +80,14 @@
             </executions>
 			</plugin>
 		</plugins> -->
+=======
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+>>>>>>> refs/remotes/origin/test
 	</build>
 
 </project> 
