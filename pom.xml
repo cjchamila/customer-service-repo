@@ -63,8 +63,7 @@
 
 	<build>
 	<finalName>customer-service</finalName>
-
-
+	</build>
 
 </project> 
 
