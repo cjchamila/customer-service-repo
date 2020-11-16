@@ -9,7 +9,7 @@ pipeline {
             }
         }
         } 
-        stage('Testing stage......tt...') {  
+        stage('Testing stage......ttt...') {  
         
 		steps {
 			withMaven(maven : 'Maven-3.6.3') {
