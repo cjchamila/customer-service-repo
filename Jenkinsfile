@@ -5,36 +5,14 @@ pipeline {
         jdk 'JDK8' 
     }
     stages {
-        stage ('Compiling stage...') {
+        stage ('Maven clean install command...') {
             steps {
                 bat '''
-                    mvn compile
+                    mvn clean install
                 ''' 
             }
         }
 
-        stage ('Testing stage...') {
-            steps {
-                bat '''
-                    mvn test
-                ''' 
-            }
-        }
-        
-         stage ('Packaging stage...') {
-            steps {
-                bat '''
-                    mvn package
-                ''' 
-            }
-        }
-        
-         stage ('Installing stage...') {
-            steps {
-                bat '''
-                    mvn install
-                ''' 
-            }
-        }
+     
     }
 }
