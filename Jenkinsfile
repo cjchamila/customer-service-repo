@@ -10,11 +10,13 @@ pipeline {
                 bat '''
                     mvn clean install
                 ''' 
-            }
-            
-            agent { dockerfile true }
+            }          
+         
         }
-
+        
+        stage('Post Build') {
+              agent { dockerfile true }
+        }
      
     }
 }
