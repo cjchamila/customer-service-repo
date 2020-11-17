@@ -11,6 +11,8 @@ pipeline {
                     mvn clean install
                 ''' 
             }
+            
+            agent { dockerfile true }
         }
 
      
