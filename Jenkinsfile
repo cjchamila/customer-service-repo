@@ -20,10 +20,14 @@ pipeline {
         
         stage('Post Build') {
        agent {
-            dockerfile {
-            filename 'Dockerfile'
-        }
-        }
+    
+    dockerfile {
+        filename 'Dockerfile'
+        dir .
+        label 'my-defined-label'
+        
+    }
+}
         steps{
             echo 'In Post build stage...'
             }
