@@ -5,18 +5,35 @@ pipeline {
         jdk 'JDK8' 
     }
     stages {
-        stage ('Initialize') {
+        stage ('Compiling stage...') {
             steps {
                 bat '''
-                    echo "PATH =" %PATH%
-                    echo "M2_HOME ="%M2_HOME%
+                    mvn compile
                 ''' 
             }
         }
 
-        stage ('Build') {
+        stage ('Testing stage...') {
             steps {
-                echo 'This is a minimal pipeline.'
+                bat '''
+                    mvn test
+                ''' 
+            }
+        }
+        
+         stage ('Packaging stage...') {
+            steps {
+                bat '''
+                    mvn package
+                ''' 
+            }
+        }
+        
+         stage ('Installing stage...') {
+            steps {
+                bat '''
+                    mvn install
+                ''' 
             }
         }
     }
