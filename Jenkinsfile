@@ -15,7 +15,12 @@ pipeline {
         }
         
         stage('Post Build') {
-              agent { dockerfile true }
+              agent { dockerfile {
+  				filename 'Dockerfile'
+                          }
+ 
+                      }
+ }
         }
      
     }
