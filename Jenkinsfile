@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { dockerfile true }
     tools { 
         maven 'Maven-3.6.3' 
         jdk 'JDK8' 
@@ -15,7 +15,8 @@ pipeline {
         }
         
         stage('Post Build') {
-              agent { dockerfile {
+              agent { 
+              dockerfile {
   				filename 'Dockerfile'
                           }
  
