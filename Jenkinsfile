@@ -1,33 +1,23 @@
 pipeline {
-    agent any 
+    agent any
+    tools { 
+        maven 'Maven-3.6.3' 
+        jdk 'JDK8' 
+    }
     stages {
-        stage('Compiling stage...........................') { 
-       
-           steps {
-               withMaven(maven : 'Maven-3.6.3') {
-				bat'mvn clean compile'
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
             }
         }
-        } 
-        stage('Testing stage.....tss...') {  
-        
-		steps {
-			withMaven(maven : 'Maven-3.6.3') {
-			bat'mvn test'
-			}
-			}
-               
-            }
-        
-	stage('Deplying stage') {
-	
-	steps{
-	    withMaven(maven : 'Maven-3.6.3') {
-			bat'mvn install'
-           } 
-        }
-            } 
-            
-}
-}
 
+        stage ('Build') {
+            steps {
+                echo 'This is a minimal pipeline.'
+            }
+        }
+    }
+}
