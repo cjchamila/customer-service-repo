@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
     tools { 
         maven 'Maven-3.6.3' 
         jdk 'JDK8' 
@@ -7,7 +7,9 @@ pipeline {
     
    
     stages {
+    
         stage ('Maven clean install command...') {
+        agent any
             steps {
                 bat '''
                     mvn clean install
@@ -25,7 +27,8 @@ pipeline {
                       }
         steps{
             echo 'In Post build stage...'
-                      }
+            }
+                      
  }
         }
      
