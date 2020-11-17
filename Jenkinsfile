@@ -6,17 +6,7 @@ pipeline {
     }
     
    
-    stages {
-    
-        stage ('Maven clean install command...') {
-     
-            steps {
-                bat '''
-                    mvn clean install
-                ''' 
-            }          
-         
-        }
+   
         
         stage('Post Build') {
        agent {
