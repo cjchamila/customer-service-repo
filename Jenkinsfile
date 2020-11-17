@@ -15,11 +15,13 @@ pipeline {
         }
         
         stage('Post Build') {
-              agent { 
+        steps{
+            agent { 
               dockerfile {
   				filename 'Dockerfile'
                           }
  
+                      }
                       }
  }
         }
