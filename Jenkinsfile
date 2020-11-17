@@ -17,13 +17,14 @@ pipeline {
         }
         
         stage('Post Build') {
-        steps{
-            agent { 
+        agent { 
               dockerfile {
   				filename 'Dockerfile'
                           }
  
                       }
+        steps{
+            echo 'In Post build stage...'
                       }
  }
         }
