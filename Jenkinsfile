@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     tools { 
         maven 'Maven-3.6.3' 
         jdk 'JDK8' 
@@ -9,7 +9,7 @@ pipeline {
     stages {
     
         stage ('Maven clean install command...') {
-        agent any
+     
             steps {
                 bat '''
                     mvn clean install
@@ -20,14 +20,10 @@ pipeline {
         
         stage('Post Build') {
        agent {
-    
-    dockerfile {
-        filename 'Dockerfile'
-        dir .
-        label 'my-defined-label'
-        
-    }
-}
+            dockerfile {
+            filename 'Dockerfile.build'
+        }
+        }
         steps{
             echo 'In Post build stage...'
             }
