@@ -7,6 +7,8 @@ pipeline {
     
    
     stages {
+    stage{
+    
     agent any
         stage ('Maven clean install command...') {
      
@@ -18,6 +20,8 @@ pipeline {
             }          
          
         }
+        }
+        
         
         stage('Post Build') {
        agent {
