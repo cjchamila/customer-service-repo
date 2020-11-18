@@ -1,30 +1,24 @@
 pipeline {
     agent none
-    tools { 
-        maven 'Maven-3.6.3' 
-        jdk 'JDK8' 
+    tools{
+    jdk JDK8
+    maven Maven-3.6.3
+        }
     }
-    
-   
+
     stages {
-    
-        stage ('Maven clean install command...') {
-   agent {
-    
-    dockerfile {
-        filename 'Dockerfile.build'
-        
+        stage('do everything in docker') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile'
+                   
+                }
+            }
+            
+    }
+    post {
+        always {
+            echo 'always executed'
+        }
     }
 }
-            steps {
-                bat '''
-                    mvn clean install
-                ''' 
-            }          
-         
-        }
-        
-        
-        }
-     
-    }
