@@ -9,8 +9,11 @@ pipeline {
     stages {
     
         stage ('Maven clean install command...') {
-     agent {label 'master' }
-          
+   agent {
+            dockerfile {
+            filename 'Dockerfile'
+        }
+          }
             steps {
                 bat '''
                     mvn clean install
@@ -19,17 +22,7 @@ pipeline {
          
         }
         
-        stage('Post Build') {
-       agent {
-            dockerfile {
-            filename 'Dockerfile.build'
-        }
-        }
-        steps{
-            echo 'In Post build stage...'
-            }
-                      
- }
+        
         }
      
     }
