@@ -10,10 +10,12 @@ pipeline {
     
         stage ('Maven clean install command...') {
    agent {
-            dockerfile {
-            filename 'Dockerfile'
-        }
-          }
+    
+    dockerfile {
+        filename 'Dockerfile.build'
+        
+    }
+}
             steps {
                 bat '''
                     mvn clean install
