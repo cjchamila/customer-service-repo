@@ -1,11 +1,5 @@
 pipeline {
     agent none
-    tools{
-    jdk 'JDK8'
-    maven 'Maven-3.6.3'
-        }
-    
-
     stages {
         stage('do everything in docker') {
             agent {
@@ -14,12 +8,32 @@ pipeline {
                    
                 }
             }
-            
+            stages {
+                stage('stuff in docker') {
+                    steps {
+                         ehco 'more stuff..'
+                    }
+                stage('more stuff in docker') {
+                    steps {
+                           ehco 'more stuff..'
+                    }
+                }
+            }
+        }
+        stage('stuff not in docker') {
+            steps {
+                 ehco 'more stuff..'
+            }
+        }
+        stage('more stuff not in docker') {
+            steps {
+                ehco 'more stuff..'
+            }
+        }
     }
     post {
         always {
-            echo 'always executed'
+            echo 'always run...'
         }
     }
-}
 }
