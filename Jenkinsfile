@@ -26,12 +26,13 @@ pipeline {
            }
        }
 
-       }
-        steps{
+ 		steps{
             echo 'In Post build stage...'
             }
-                      
+       }
+       
+                     
  }
         }
      
-    }
+ 
