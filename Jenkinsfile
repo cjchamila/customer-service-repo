@@ -1,40 +1,37 @@
 pipeline {
-    agent none
+    agent any
+    tools { 
+        maven 'Maven-3.6.3' 
+        jdk 'JDK8' 
+    }
+    
+   
     stages {
-        stage('do everything in docker') {
-            agent {
-                dockerfile {
-                    filename 'Dockerfile'
-                   
-                }
-            }
-            stages {
-                stage('stuff in docker') {
-                    steps {
-                         ehco 'more stuff..'
-                    }
-                stage('more stuff in docker') {
-                    steps {
-                           ehco 'more stuff..'
-                    }
-                }
-            }
-        }
-        stage('stuff not in docker') {
-            steps {
-                 ehco 'more stuff..'
-            }
-        }
-        stage('more stuff not in docker') {
-            steps {
-                ehco 'more stuff..'
-            }
-        }
-    }
-    post {
-        always {
-            echo 'always run...'
-        }
+    
+        stage ('Maven clean install command...') {
+     agent {
+    docker {
+        image 'maven:3-alpine'
+        label 'my-defined-label'
+        args  '-v /tmp:/tmp'
     }
 }
-}
+          
+            steps {
+                bat '''
+                    mvn clean install
+                ''' 
+            }          
+         
+        }
+        
+        stage('Post Build') {
+      
+        steps{
+            echo 'In Post build stage...'
+            }
+                      
+ }
+        }
+     
+    }
