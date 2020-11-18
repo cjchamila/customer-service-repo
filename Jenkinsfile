@@ -13,7 +13,7 @@ pipeline {
     docker {
         image 'maven:3-alpine'
         label 'my-defined-label'
-        args  '-v /tmp:/tmp'
+        args  '-v /tmp:/tmp' 
     }
 }
           
