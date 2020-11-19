@@ -1,8 +1,6 @@
 FROM ubuntu:latest
 
-RUN ["bash", "-c","cd usr/bin"]
-
-RUN ["bash", "-c", "mkdir Java & cd Java"]
+CMD ["bash", "-c","cd usr/bin && mkdir Java && cd Java "]
 
 #ENV JAVA_DIR=/usr/bin/Java
 
