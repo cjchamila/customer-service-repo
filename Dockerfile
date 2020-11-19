@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN ["bash", "mkdir","usr/bin/Java"]
+RUN ["bash", "cd","usr/bin & mkdir Java"]
 
 ENV JAVA_DIR=/usr/bin/Java
 
