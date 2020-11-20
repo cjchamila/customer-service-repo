@@ -6,7 +6,7 @@ CMD ["bash", "-c","cd usr && mkdir Java && cd Java"]
 
 WORKDIR /usr/lib
 
-RUN ["bash","-c", "apt update && apt-get install openjdk-8-jdk"]
+RUN ["bash","-c", "apt update && apt-get install openjdk-8-jdk -Y"]
 
 ADD ./../../../Windows/system32/config/systemprofile/.m2/repository/com/chamila/customerservice/customer-service/0.0.1-SNAPSHOT/customer-service-0.0.1-SNAPSHOT.jar /customer-service.jar
 
