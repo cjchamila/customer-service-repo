@@ -1,15 +1,17 @@
 FROM ubuntu:latest
 
-CMD ["bash", "-c","cd usr && mkdir Java && cd Java"]
+CMD ["bash", "-c","cd usr && mkdir Java"]
 
-#ENV JAVA_DIR=/usr/bin/Java
+ENV JAVA_DIR=/usr/Java
 
-WORKDIR /usr/Java
+WORKDIR $JAVA_DIR
 
 RUN ["bash","-c", "apt update && apt-get -y install openjdk-8-jdk"]
 
-CMD ["bash", "-c","cd ../../../../../../../../config/systemprofile/.m2/repository/com/chamila/customerservice/customer-service/0.0.1-SNAPSHOT"]
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
-COPY customer-service-0.0.1-SNAPSHOT.jar /
+ADD ../../../../../../../../config/systemprofile/.m2/repository/com/chamila/customerservice/customer-service/0.0.1-SNAPSHOT/customer-service-0.0.1-SNAPSHOT.jar $JAVA_DIR 
+
+CMD ["bash", "-c", "SET PATH=$JAVA_HOME/bin"]
 
 ENTRYPOINT ["java","-jar","customer-service.jar"] 
