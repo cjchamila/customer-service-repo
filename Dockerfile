@@ -8,6 +8,8 @@ WORKDIR /usr/Java
 
 RUN ["bash","-c", "apt update && apt-get -y install openjdk-8-jdk"]
 
-ADD ./../../../Windows/system32/config/systemprofile/.m2/repository/com/chamila/customerservice/customer-service/0.0.1-SNAPSHOT/customer-service-0.0.1-SNAPSHOT.jar /customer-service.jar
+CMD ["bash", "-c","cd ../../../../../../../../config/systemprofile/.m2/repository/com/chamila/customerservice/customer-service/0.0.1-SNAPSHOT"]
 
-ENTRYPOINT ["java","-jar","WORKDIR/customer-service.jar"]
+COPY customer-service-0.0.1-SNAPSHOT.jar /customer-service.jar
+
+ENTRYPOINT ["java","-jar","customer-service.jar"] 
