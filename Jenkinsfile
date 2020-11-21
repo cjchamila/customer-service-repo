@@ -14,7 +14,8 @@ pipeline {
           
             steps {
                 bat '''
-                    mvn package install
+                cd customer-service 
+                mvn clean install 
                 ''' 
             }          
          
