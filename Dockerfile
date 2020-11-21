@@ -14,4 +14,4 @@ ADD /target/customer-service.jar $JAVA_DIR/
 
 CMD ["bash", "-c", "SET PATH=$JAVA_HOME/bin"]
 
-ENTRYPOINT ["java","-jar","customer-service.jar"] 
+#ENTRYPOINT ["java","-jar","customer-service.jar"] 
