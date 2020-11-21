@@ -7,7 +7,7 @@ pipeline {
     }
     
    
-    stages { 
+    stages {  
  
         stage ('Maven clean install command...') {
        agent any
