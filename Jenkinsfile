@@ -26,24 +26,22 @@ pipeline {
         
         
         stage('Post Build') {
-         
- 		steps{
- 	
- 		agent {
+       agent {
        dockerfile{
-     
        filename 'Dockerfile'  
-          args  'customerservice-img:${BUILD_NUMBER} '  
+       args  'customerservice-img:${BUILD_NUMBER} -v /C:/Windows/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/er-service-pipeline-rentacar_dev/:/'   
        
            }
            
          
        }
+
+ 		steps{
  		
 		script{
 		   docker.withDockerContainer(Image.id){
  		     sh '''
- 		   echo 'Docker container = Image.id'
+ 		   echo 'Hi Chamila'
                '''
  		} 
 		}
