@@ -26,12 +26,13 @@ pipeline {
         
         
         stage('Post Build') {
-         node {
+         
+ 		steps{
+ 		node {
             
              args  'customerservice-img:${BUILD_NUMBER} '  
          
         }
- 		steps{
  		agent {
        dockerfile{
       
