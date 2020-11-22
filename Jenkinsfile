@@ -29,7 +29,7 @@ pipeline {
        agent {
        dockerfile{
        filename 'Dockerfile'  
-       args  '--build-t customerservice-img:${BUILD_NUMBER} -v /C:/Windows/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/er-service-pipeline-rentacar_dev/:/'   
+       args  '-t customerservice-img:${BUILD_NUMBER} -v /C:/Windows/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/er-service-pipeline-rentacar_dev/:/'   
        
            }
            
