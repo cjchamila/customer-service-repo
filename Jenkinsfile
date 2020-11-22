@@ -26,13 +26,13 @@ pipeline {
         
         
         stage('Post Build') {
-        node {
+       
+      	steps{
+ 		 node {
   git '…' // checks out Dockerfile & Makefile
   def myEnv = docker.build 'customerservice-img:${BUILD_NUMBER}'
   
 }
-      	steps{
- 		
 		script{
 		   docker.withDockerContainer(Image.id){
  		     sh '''
