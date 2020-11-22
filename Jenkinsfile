@@ -26,15 +26,18 @@ pipeline {
         
         
         stage('Post Build') {
-      
-     agent any
+       agent {
+       dockerfile{
+       filename 'Dockerfile'  
+       args  'customerservice-img:${BUILD_NUMBER} -v /C:/Windows/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/er-service-pipeline-rentacar_dev/:/'   
+       
+           }
+           
+         
+       }
 
  		steps{
- 		 node {
-    checkout scm
-    def dockerfile = 'Dockerfile'
-    def customImage = docker.build("customerservice-img:${env.BUILD_ID}", "-f ${dockerfile} .") 
-}
+ 		
 		script{
 		   docker.withDockerContainer(Image.id){
  		     sh '''
