@@ -33,9 +33,9 @@ pipeline {
 		
 		node {
  
- docker.build 'customerservice-img:${BUILD_NUMBER}'
+ 		docker.build 'customerservice-img:${BUILD_ID} -f Dockerfile'
   
-}
+			}
 		   docker.withDockerContainer(Image.id){
  		     sh '''
  		   echo 'Hi Chamila'
