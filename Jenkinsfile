@@ -28,7 +28,7 @@ pipeline {
         stage('Post Build') {
          
  		steps{
- 		node {
+ 	label node  {
             
              args  'customerservice-img:${BUILD_NUMBER} '  
          
@@ -47,7 +47,7 @@ pipeline {
 		script{
 		   docker.withDockerContainer(Image.id){
  		     sh '''
- 		   echo 'Hi Chamila'
+ 		   echo 'Docker container = Image.id'
                '''
  		} 
 		}
