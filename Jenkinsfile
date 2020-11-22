@@ -33,7 +33,7 @@ pipeline {
 		
 		node {
  
- 		docker.build 'customerservice-img:${BUILD_ID} -f Dockerfile'
+ 		docker.build 'customerservice-img:latest -f Dockerfile'
   
 			}
 		   docker.withDockerContainer(Image.id){
