@@ -26,9 +26,15 @@ pipeline {
         
         
         stage('Post Build') {
-       agent {
+         node {
+            
+             args  'customerservice-img:${BUILD_NUMBER} '  
+         
+        }
+ 		steps{
+ 		agent {
        dockerfile{
-       args  'customerservice-img:${BUILD_NUMBER} '  
+      
        filename 'Dockerfile'  
         
        
@@ -36,8 +42,6 @@ pipeline {
            
          
        }
-
- 		steps{
  		
 		script{
 		   docker.withDockerContainer(Image.id){
