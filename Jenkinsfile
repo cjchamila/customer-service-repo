@@ -32,7 +32,7 @@ pipeline {
 		script{
 		
 		node {
-  git '…' // checks out Dockerfile & Makefile
+ 
  docker.build 'customerservice-img:${BUILD_NUMBER}'
   
 }
