@@ -28,8 +28,9 @@ pipeline {
         stage('Post Build') {
        agent {
        dockerfile{
+       args  'customerservice-img:${BUILD_NUMBER} '  
        filename 'Dockerfile'  
-       args  'customerservice-img:${BUILD_NUMBER} '   
+        
        
            }
            
