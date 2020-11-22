@@ -28,12 +28,14 @@ pipeline {
         stage('Post Build') {
        
       	steps{
- 		 node {
+ 		 
+		script{
+		
+		node {
   git '…' // checks out Dockerfile & Makefile
  docker.build 'customerservice-img:${BUILD_NUMBER}'
   
 }
-		script{
 		   docker.withDockerContainer(Image.id){
  		     sh '''
  		   echo 'Hi Chamila'
