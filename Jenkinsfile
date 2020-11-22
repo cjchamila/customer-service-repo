@@ -34,17 +34,21 @@ pipeline {
 
  		steps{
  		agent{
- 		    docker {
-		      image Image.id
+ 		    docker(Image.id) {
+		    
 		      args '-v C:/Windows/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/er-service-pipeline-rentacar_dev/:/usr/Java'
     		}
  		}
 
- 		docker.withDockerContainer(Image.id){
+		script{
+		   docker.withDockerContainer(Image.id){
  		     sh '''
  		   echo 'Hi Chamila'
                '''
- 		}
+ 		} 
+		}
+
+ 		
 
  	           
 }
