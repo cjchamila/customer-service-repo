@@ -28,14 +28,10 @@ pipeline {
         stage('Post Build') {
          
  		steps{
- 	label node  {
-            
-             args  'customerservice-img:${BUILD_NUMBER} '  
-         
-        }
+ 	
  		agent {
        dockerfile{
-      
+      args  'customerservice-img:${BUILD_NUMBER} '  
        filename 'Dockerfile'  
         
        
