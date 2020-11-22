@@ -30,7 +30,7 @@ pipeline {
       	steps{
  		 node {
   git '…' // checks out Dockerfile & Makefile
-  def myEnv = docker.build 'customerservice-img:${BUILD_NUMBER}'
+ docker.build 'customerservice-img:${BUILD_NUMBER}'
   
 }
 		script{
