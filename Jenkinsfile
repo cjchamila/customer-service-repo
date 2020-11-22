@@ -36,11 +36,7 @@ pipeline {
  		docker.build 'customerservice-img:latest -f Dockerfile'
   
 			}
-		   docker.withDockerContainer(Image.id){
- 		     sh '''
- 		   echo 'Hi Chamila'
-               '''
- 		} 
+		   
 		}
 
  		
