@@ -13,6 +13,7 @@ pipeline {
        agent any
           
             steps {
+            
                 bat '''
                 cd customer-service 
                
@@ -32,17 +33,20 @@ pipeline {
        }
 
  		steps{
-           script{
+ 		agent{
+ 		    docker {
+		      image Image.id
+		      args '-v C:/Windows/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/er-service-pipeline-rentacar_dev/:/usr/Java'
+    		}
+ 		}
 
-               docker.withRegistry('https://console.cloud.google.com/gcr/images/gcr-project-296102?project=gcr-project-296102', 'gcr-project') {
+ 		docker.withDockerContainer(Image.id){
+ 		     sh '''
+ 		   echo 'Hi Chamila'
+               '''
+ 		}
 
-        def customImage = docker.build("customerservice-img:${env.BUILD_ID}")
-
-        /* Push the container to the custom Registry */
-        customImage.push()
-            }
-
-           }
+ 	           
 }
        
    
