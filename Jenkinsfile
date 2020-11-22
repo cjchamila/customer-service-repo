@@ -29,7 +29,7 @@ pipeline {
        agent {
        dockerfile{
        filename 'Dockerfile'  
-       args  'customerservice-img:'${BUILD_NUMBER}' '   
+       args  'customerservice-img:${BUILD_NUMBER} '   
        
            }
            
