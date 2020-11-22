@@ -30,14 +30,20 @@ pipeline {
        dockerfile{
        filename 'Dockerfile'      
            }
+           
+           
+            docker(Image.id) {
+            args '-v C:/Windows/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/er-service-pipeline-rentacar_dev/:/usr/Java'
+            
+        }
        }
 
  		steps{
  		agent{
- 		    docker(Image.id) {
-		    
-		      args '-v C:/Windows/system32/config/systemprofile/AppData/Local/Jenkins/.jenkins/workspace/er-service-pipeline-rentacar_dev/:/usr/Java'
-    		}
+ 		    docker{
+ 		        image:Image.id
+ 		    }
+
  		}
 
 		script{
