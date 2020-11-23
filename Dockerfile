@@ -32,22 +32,3 @@ CMD ["/bin/sh", "-c", "/etc/profile.d/java.sh"]
 ADD /customer-service/target/customer-service.jar $JAVA_DIR/
 
 ENTRYPOINT ["java","-jar","customer-service.jar"] 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-CMD ["/bin/sh", "-c", "SET PATH=$JAVA_HOME/bin"]
-
-ENTRYPOINT ["java","-jar","customer-service.jar"] 
