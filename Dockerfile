@@ -9,7 +9,7 @@ ENV JAVA_DIR=/usr/Java
 WORKDIR $JAVA_DIR
 
 #RUN ["bash","-c", "apt update && apt-get -y install openjdk-8-jdk"]
-RUN ["/bin/sh","-c", "apt update && apt-get -y install openjdk-8-jdk"]
+RUN ["/bin/sh","-c", "apk update && apt add -y install openjdk-8-jdk"]
 
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
