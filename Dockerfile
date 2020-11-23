@@ -21,13 +21,13 @@ RUN ["/bin/sh","-c", "apk update && apk add -y openjdk8"]
 
 CMD ["/bin/sh", "-c", "sudo tar -zxvf jdk-8u271-linux-aarch64.tar.gz"]
 
-CMD["/bin/sh", "-c", "ln -s /opt/java/jdk1.8.0_271 /opt/java/current"]
+CMD ["/bin/sh", "-c", "ln -s /opt/java/jdk1.8.0_271 /opt/java/current"]
 
-CMD["/bin/sh", "-c", "export JAVA_HOME=/opt/java/current"]
+CMD ["/bin/sh", "-c", "export JAVA_HOME=/opt/java/current"]
 
-CMD["/bin/sh", "-c", "export PATH=$PATH:$JAVA_HOME/bin"]
+CMD ["/bin/sh", "-c", "export PATH=$PATH:$JAVA_HOME/bin"]
 
-CMD["/bin/sh", "-c", "/etc/profile.d/java.sh"]
+CMD ["/bin/sh", "-c", "/etc/profile.d/java.sh"]
 
 ADD /customer-service/target/customer-service.jar $JAVA_DIR/
 
