@@ -35,7 +35,7 @@ pipeline {
  
  		//docker.build 'customerservice-img:latest -f Dockerfile'
   
-  docker.withRegistry('https://gcr.io', 'gcr:gcr-project') {  
+  docker.withRegistry('https://gcr.io', 'gcr:gcr-project') {   
 		Image.tag("customerservice-img")
         def customImage = build("gcr-project-296102:${env.BUILD_ID}") 
 
