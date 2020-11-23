@@ -37,7 +37,6 @@ pipeline {
   
   docker.withRegistry('https://us.gcr.io', 'gcr:gcr-project') {
   
-  push()
 
         def customImage = docker.build("gcr-project:${env.BUILD_ID}")
 
