@@ -9,13 +9,13 @@ ENV JAVA_DIR=/usr/Java
 WORKDIR $JAVA_DIR
 
 #RUN ["bash","-c", "apt update && apt-get -y install openjdk-8-jdk"]
-RUN ["/bin/ash","-c", "apt update && apt-get -y install openjdk-8-jdk"]
+RUN ["/bin/sh","-c", "apt update && apt-get -y install openjdk-8-jdk"]
 
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 ADD /customer-service/target/customer-service.jar $JAVA_DIR/ 
 
 #CMD ["bash", "-c", "SET PATH=$JAVA_HOME/bin"]
-CMD ["/bin/ash", "-c", "SET PATH=$JAVA_HOME/bin"]
+CMD ["/bin/sh", "-c", "SET PATH=$JAVA_HOME/bin"]
 
 ENTRYPOINT ["java","-jar","customer-service.jar"] 
