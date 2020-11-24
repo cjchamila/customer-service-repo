@@ -39,7 +39,7 @@ pipeline {
   
   docker.withRegistry('https://gcr.io', 'gcr:gcr-project') { 
   
-   def customImage = build('gcr-project-296102:${env.BUILD_ID}',['-t customerservice-img:latest']) 
+   def customImage = build('-t customerservice-img:latest/gcr-project-296102:${env.BUILD_ID}') 
 
         /* Push the container to the custom Registry */ 
         customImage.push()
