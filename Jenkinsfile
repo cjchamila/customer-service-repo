@@ -35,7 +35,7 @@ pipeline {
 		
 		node {
  
- 		//def customImage =docker.build ('gcr.io/gcr-project-296102/customerservice-img:latest -f Dockerfile')
+ 		def customImage =docker.build ('gcr.io/gcr-project-296102/customerservice-img:latest -f Dockerfile')
   
   docker.withRegistry('https://gcr.io', 'gcr:gcr-project') { 
   
