@@ -28,23 +28,21 @@ pipeline {
         stage('Post Build') {
        
       	steps{
- 		 
+ 		  
 		script{
 		
 		
 		
 		node {
  
- 	def customImageFinal=docker.build ('gcr.io/gcr-project-296102/customerservice-img:latest')
+ 	def customImage=docker.build ('gcr.io/gcr-project-296102/customerservice-img:latest')
  		
  		
   
   docker.withRegistry('https://gcr.io', 'gcr:gcr-project') { 
-  
-  //def customImageFinal = build('gcr.io/gcr-project-296102/customerservice-img:latest') 
-
-        /* Push the container to the custom Registry */ 
-        customImageFinal.push()
+ 
+        /* Push the container to Google Cloud Registry */ 
+        customImage.push()
     } 
 			}
 			
