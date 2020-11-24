@@ -31,10 +31,7 @@ pipeline {
  		 
 		script{
 		
-		node{
-			docker.Image.tag(["customerservice-img:gcr-project-296102:${env.BUILD_ID}"])
-			
-			    }
+		
 		
 		node {
  
@@ -42,19 +39,14 @@ pipeline {
   
   docker.withRegistry('https://gcr.io', 'gcr:gcr-project') { 
   
-  
-		
-       // def customImage = build("gcr-project-296102:${env.BUILD_ID}") 
+   def customImage = build("customerservice-img:latest:gcr-project-296102:${env.BUILD_ID}",'-f Dockerfile') 
 
         /* Push the container to the custom Registry */ 
-        //customImage.push()
+        customImage.push()
     }
 			}
 			
-			node{
-			    docker.Image.push(["customerservice-img:gcr-project-296102:${env.BUILD_ID}"])  
-			}
-
+			
 			
 			}
 
