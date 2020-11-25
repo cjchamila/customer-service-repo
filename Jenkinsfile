@@ -38,8 +38,8 @@ pipeline {
  	def customImage=docker.build ('gcr.io/gcr-project-296102/customerservice-img:latest')
  		
  		
-  
-  docker.withRegistry('https://gcr.io', 'gcr:gcr-project') { 
+   
+  docker.withRegistry('https://gcr.io', 'gcr:gcr-project') {   
  
         /* Push the container to Google Cloud Registry */ 
         customImage.push()
